@@ -1,0 +1,8 @@
+Camera 01
+Artist: Rajil Jose Macatangay
+Original source: https://polyhaven.com/a/Camera_01
+License: CC0 1.0 Universal — https://creativecommons.org/publicdomain/zero/1.0/
+Optimized GLB and preview distribution: https://github.com/Vectreal/vectreal-platform/tree/main/apps/vectreal-platform/app/assets/models
+The GLB is approximately 925 KiB, with embedded PBR textures and Draco geometry.
+LUZ integration changes: scale, presentation lighting, lens material tuning and scroll animation.
+Three.js GLTFLoader, DRACOLoader and Draco decoder are bundled with their original license notices.
