@@ -1,6 +1,6 @@
-import * as THREE from './three.module.js';
-import { GLTFLoader } from './GLTFLoader.js';
-import { DRACOLoader } from './DRACOLoader.js';
+import * as THREE from './assets/three.module.js';
+import { GLTFLoader } from './assets/GLTFLoader.js';
+import { DRACOLoader } from './assets/DRACOLoader.js';
 const canvas=document.getElementById('scene'),host=document.getElementById('hero-art');
 try {
  const mobile=()=>window.innerWidth<700;
@@ -22,9 +22,9 @@ try {
  // Textured Camera 01 model, Rajil Jose Macatangay / Poly Haven (CC0).
  const sculpture=new THREE.Group();scene.add(sculpture);
  const materials=new Map();let modelReady=false;
- const draco=new DRACOLoader();draco.setDecoderPath('./');draco.setDecoderConfig({type:'wasm'});draco.setWorkerLimit(1);
+ const draco=new DRACOLoader();draco.setDecoderPath('./assets/');draco.setDecoderConfig({type:'wasm'});draco.setWorkerLimit(1);
  const loader=new GLTFLoader();loader.setDRACOLoader(draco);
- loader.load('./real-camera.glb',gltf=>{
+ loader.load('./assets/real-camera.glb',gltf=>{
   const model=gltf.scene;model.updateMatrixWorld(true);
   const bounds=new THREE.Box3().setFromObject(model),center=bounds.getCenter(new THREE.Vector3()),size=bounds.getSize(new THREE.Vector3());
   const pivot=new THREE.Group();model.position.sub(center);pivot.add(model);pivot.scale.setScalar(4.6/size.x);sculpture.add(pivot);
