@@ -1,30 +1,41 @@
-# Luz cinematic rebuild
+# LUZ cinematic rebuild
 
-A standalone HTML, CSS and JavaScript website. Publish the `dist` directory on any static host. Third-party runtime dependencies (Three.js and GSAP) and fonts are bundled locally.
+A standalone HTML, CSS and JavaScript website for LUZ, a video editing and film production studio. The repository is ready to deploy as a static site from its root directory. Three.js, GSAP, fonts, the camera model and visual assets are bundled locally.
 
 ## Features
 
-- Responsive cinematic layout with Three.js interactive cinema camera and GSAP reveals
-- Motion pause, reduced-motion preference, offscreen rendering suspension and WebGL fallback
-- Filterable visual concept gallery with native accessible dialogs
+- Responsive cinematic layout with an interactive Three.js camera
+- GSAP reveals and editing-inspired opening intro
+- Realistic CC0 textured rangefinder camera with Draco loading
+- Motion pause, reduced-motion support, WebGL fallback and offscreen suspension
+- Filterable visual concept gallery with accessible dialogs
 - Service accordions and original-site video player with external fallback
-- Validated inquiry form handing off to WhatsApp; no data is stored or sent automatically
-- Verified Luz phone, email, social and address links
+- Validated enquiry form handing off to WhatsApp; no data is stored automatically
+- Verified LUZ phone, email, social and address links
 
-## Content
+## Run locally
 
-Business information and imagery originate from https://luz.co.in/, reviewed 7 October 2026. Artwork is presented as visual concepts, not fabricated client projects. The source email was confirmed from the footer mailto link. No backend email service is configured. The source website and its domain are unchanged.
+Serve the repository root through a local HTTP server so ES modules and the 3D assets load correctly:
 
-## Libraries
+    python -m http.server 8080
 
-Three.js 0.160.1 (MIT), GSAP 3.12.5 (included license notices), Space Grotesk and Manrope (Google Fonts). Keep dependency license notices when redistributing. The existing Luz imagery remains the property of its respective owners.
+Then open http://localhost:8080.
 
-## October 2026 reference redesign
+## Deploy
 
-The Pinterest reference informed the monochrome palette, editorial serif typography, metallic optical geometry and continuous scroll choreography. The CGI is original realtime Three.js geometry, not copied video. All pre-existing visible wording and action links are preserved. The camera remains in the opening scene; instanced metallic ribs move across section transitions. Local dependencies and reduced-motion fallbacks are retained.
+Deploy the repository root on Vercel, Netlify, GitHub Pages or any static host. The entry point is index.html.
 
-## Camera and opening sequence
+## Structure
 
-The procedural camera has been replaced with the CC0 Camera 01 textured rangefinder model by Rajil Jose Macatangay (Poly Haven). See `dist/assets/CAMERA-CREDITS.txt`. The original PBR maps remain bundled in an optimized GLB, loaded with the matching Three.js 0.160.1 GLTF/Draco loaders. A matching image preview is shown until loading succeeds or when WebGL is unavailable.
+- index.html — page markup and LUZ content
+- style.css, editorial.css — site styling
+- intro.css, intro.js — opening editing sequence
+- app.js — UI interactions, gallery, accordions and enquiry handoff
+- scene.js — Three.js camera and CGI scene
+- assets/ — Three.js, GSAP, fonts, camera GLB, Draco files and visuals
 
-The 3.4-second editing-inspired opening runs once per browser session, with Skip intro, Escape dismissal and a Replay intro footer control. Reduced-motion visitors bypass it. It is a decorative editing sequence, not a simulated network-loading indicator; it never waits for the 3D download.
+## Credits and licensing
+
+The realistic camera is Camera 01 by Rajil Jose Macatangay from Poly Haven and is distributed under CC0. See assets/CAMERA-CREDITS.txt. Three.js is MIT licensed and GSAP is bundled locally with its license notice. Existing LUZ imagery and brand content remain the property of their respective owners.
+
+Business information and imagery originate from https://luz.co.in/. Artwork is presented as visual concepts, not fabricated client projects. No backend email service is configured.
